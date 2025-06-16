@@ -16,5 +16,5 @@ function myFunction() {
         sumGradeAddedUp += numSumGradesArray[i];
     }
     const result = ((formGradeAddedUp / formGradeCount) * 0.3)+((sumGradeAddedUp / sumGradeCount) * 0.7);
-    document.getElementById("grade").innerHTML = result;
+    document.getElementById("grade").innerHTML = result.toFixed(2);
 }
