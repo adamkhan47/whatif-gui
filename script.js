@@ -16,5 +16,12 @@ function myFunction() {
         sumGradeAddedUp += numSumGradesArray[i];
     }
     const result = ((formGradeAddedUp / formGradeCount) * 0.3)+((sumGradeAddedUp / sumGradeCount) * 0.7);
-    document.getElementById("grade").innerHTML = result.toFixed(2);
+    if (!isNaN(result)) {
+        document.getElementById("grade").style.fontSize = "5rem";
+        document.getElementById("grade").innerHTML = ("Grade: " + (result.toFixed(2)));
+    }
+    else {
+        document.getElementById("grade").style.fontSize = "2rem";
+        document.getElementById("grade").innerHTML = ("Make sure you only put numbers and commas.")
+    }
 }

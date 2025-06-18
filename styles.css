@@ -25,6 +25,7 @@ body {
     font-weight: 200;
     transition: 0.1s;
     opacity: 0.45;
+    outline-color: black;
 }
 button {
     width: 12.5rem;
@@ -35,6 +36,7 @@ button {
     font-weight: 200;
     transition: 0.3s;
     opacity: 0.6;
+    outline-color: black;
 }
 #grade {
     font-size: 5rem;
@@ -43,7 +45,9 @@ button {
 }
 button:hover {
     opacity: 1;
+    background-color: rgb(15,15,15);
 }
 .text-input:hover {
     opacity :1;
+    background-color: rgb(15,15,15);
 }
