@@ -1,21 +1,40 @@
-function myFunction() {
+let formGradesArray = [];
+let summativeGradesArray = [];
+
+function addFormative() {
     const formGrades = document.getElementById("fGrades").value;
+    formGradesArray.push(Number(formGrades));
+    calculate();
+    document.getElementById("fGrades").value = "";
+}
+
+function addSummative() {
     const summativeGrades = document.getElementById("sGrades").value;
-    const formGradesArray = formGrades.split(",");
-    const sumGradesArray = summativeGrades.split(",");
-    const numFormGradesArray = formGradesArray.map(Number);
-    const numSumGradesArray = sumGradesArray.map(Number);
-    const formGradeCount = numFormGradesArray.length;
-    const sumGradeCount = numSumGradesArray.length;
+    summativeGradesArray.push(Number(summativeGrades));
+    calculate();
+    document.getElementById("sGrades").value = "";
+}
+
+function calculate() {
     let formGradeAddedUp = 0;
     let sumGradeAddedUp = 0;
-    for (let i = 0; i<numFormGradesArray.length; i++) {
-        formGradeAddedUp += numFormGradesArray[i];
+    for (let i = 0; i < formGradesArray.length; i++) {
+        formGradeAddedUp += formGradesArray[i];
     }
-    for (let i = 0; i<numSumGradesArray.length; i++) {
-        sumGradeAddedUp += numSumGradesArray[i];
+    for (let i = 0; i < summativeGradesArray.length; i++) {
+        sumGradeAddedUp += summativeGradesArray[i];
     }
-    const result = ((formGradeAddedUp / formGradeCount) * 0.3)+((sumGradeAddedUp / sumGradeCount) * 0.7);
+
+    let formGradeCount = formGradesArray.length;
+    let sumGradeCount = summativeGradesArray.length;
+    if (formGradeCount === 0) {
+        formGradeCount = 1;
+    }
+    if (sumGradeCount === 0) {
+        sumGradeCount = 1;
+    }
+
+    const result = ((formGradeAddedUp / formGradeCount) * 0.3) + ((sumGradeAddedUp / sumGradeCount) * 0.7);
     if (!isNaN(result)) {
         document.getElementById("grade").style.fontSize = "5rem";
         document.getElementById("grade").innerHTML = ("Grade: " + (result.toFixed(2)));

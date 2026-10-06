@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- You need this for mobile scaling ig--> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- You need this for mobile scaling ig-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">    
+    <link rel="stylesheet" href="styles.css">
     <title>What If Grade Manager</title>
 </head>
+
 <body>
     <h1>What If Grade Manager</h1>
-    <h2>Enter your formative and summative grades, and it will show you what your average would be.</h2>
-    <h2>This makes it significantly easier to find what your grades would be after a test or a quiz.</h2>
     <hr>
     <h1 id="grade">Grade: </h1>
-    <h2>Use commas in between grades.</h2>
-    <h2>Example: 90,10,47</h2>
-    <h2>Example: 100, 100, 100</h2>
-    <div class="gradeInput">
-        <input type="text" id="fGrades" name="formativeGrades" placeholder="Enter formative grades" class="text-input"> <br>
-        <input type="text" id="sGrades" name="summativeGrades" placeholder="Enter summative grades" class="text-input"> <br> <br>
-        <button onclick="myFunction()">Calculate Grades</button>
-        
+    <div class="cool">
+        <div class="gradeInput">
+            <input type="text" id="fGrades" name="formativeGrades" placeholder="Enter formative grade"
+                class="text-input">
+            <br> <br>
+            <button onclick="addFormative()">Add Formative</button>
+            <br> <br>
+            <input type="text" id="sGrades" name="summativeGrades" placeholder="Enter summative grade"
+                class="text-input">
+            <br> <br>
+            <button onclick="addSummative()">Add Summative</button> <br> <br>
+
+        </div>
+        <div class="edit">
+
+        </div>
     </div>
-    <script src="script.js"></script>   
+    <script src="script.js"></script>
 
 </body>
+
 </html>
