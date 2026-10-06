@@ -81,3 +81,21 @@ button:active {
     display: flex;
     gap: 10rem;
 }
+
+.remove-button {
+    width: 4rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.formatives,
+.summatives {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#remove-button {
+    flex: 0 0 33.3333%;
+}
