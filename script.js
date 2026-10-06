@@ -1,6 +1,7 @@
 let formGradesArray = [];
 let summativeGradesArray = [];
 
+
 function addFormative() {
     const formGrades = document.getElementById("fGrades").value;
     formGradesArray.push(Number(formGrades));
@@ -13,6 +14,31 @@ function addSummative() {
     summativeGradesArray.push(Number(summativeGrades));
     calculate();
     document.getElementById("sGrades").value = "";
+}
+function addGradesFromOtherSource(formArray, sumArray) {
+    for (let i = 0; i < formArray.length; i++) {
+        formGradesArray.push(formArray[i]);
+    }
+    for (let i = 0; i < sumArray.length; i++) {
+        summativeGradesArray.push(sumArray[i]);
+    }
+    calculate();
+}
+
+function editGrade(array, index, newGrade) {
+    array[index] = newGrade;
+    calculate();
+}
+
+function deleteGrade(array, index) {
+    array.splice(index, 1);
+    calculate();
+}
+
+function showGradesToEdit(array) {
+    for (let i = 0; i < array.length; i++) {
+        document.getElementById("").innerHTML += ("<button onclick='editGrade(array, i, newGrade)'>" + array[i] + "</button>" + "<button onclick='deleteGrade(array, i)'>Delete</button>");
+    }
 }
 
 function calculate() {
@@ -43,4 +69,6 @@ function calculate() {
         document.getElementById("grade").style.fontSize = "2rem";
         document.getElementById("grade").innerHTML = ("Make sure you only put numbers and commas.")
     }
+    showGradesToEdit(formGradesArray);
+    showGradesToEdit(summativeGradesArray);
 }
