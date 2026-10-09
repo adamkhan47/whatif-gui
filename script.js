@@ -23,6 +23,7 @@ function addGradesFromOtherSource(formArray, sumArray) {
         summativeGradesArray.push(sumArray[i]);
     }
     calculate();
+    generateButtons();
 }
 // test this with: http://127.0.0.1:5500/?addGradesFromOtherSources=[1,2,3],[4,5000,6] (url obv diff not localhost)
 const urlParams = new URLSearchParams(window.location.search);
