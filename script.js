@@ -60,7 +60,8 @@ function addGradesFromOtherSource(formArray, sumArray) {
 const urlParams = new URLSearchParams(window.location.search);
 const rawParam = urlParams.get('addGradesFromOtherSources');
 if (rawParam) {
-    const sanitized = rawParam.replace(/([a-zA-Z0-9]+)/g, (match) => {
+    const unquoted = rawParam.replace(/["']/g, '');
+    const sanitized = unquoted.replace(/([a-zA-Z0-9]+)/g, (match) => {
         return isNaN(match) ? `"${match}"` : match;
     });
     const parsed = JSON.parse(`[${sanitized}]`);
