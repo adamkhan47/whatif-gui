@@ -105,3 +105,23 @@ button:active {
     height: 3rem;
     font-size: 1rem;
 }
+
+#calculatorText {
+    float: right;
+    position: fixed;
+    right: 270px;
+    top: 240px;
+    z-index: 1;
+    border-radius: 1.5rem;
+}
+
+#graph {
+    width: 20%;
+    height: 45%;
+    float: right;
+    position: fixed;
+    right: 60px;
+    top: 300px;
+    z-index: 1;
+    border-radius: 1.5rem;
+}
