@@ -9,9 +9,19 @@ let summativeEC = [];
 // For example. [100,100,100,95,100,98,100,93,100,100],[90,92,5,90] theres a 5 which brings the average down to a 78.05. however the 5 extra credit should add to 90.
 
 
+function toValidGrade(value) {
+    if (value === null || value === undefined || String(value).trim() === "") {
+        return null;
+    }
+    const grade = Number(value);
+    return Number.isNaN(grade) ? null : grade;
+}
+
 function addFormative(isEC) {
-    const formGrades = document.getElementById("fGrades").value;
-    let grade = Number(formGrades);
+    const grade = toValidGrade(document.getElementById("fGrades").value);
+    if (grade === null) {
+        return;
+    }
     if (isEC) {
         formEC.push(grade);
     }
@@ -23,8 +33,10 @@ function addFormative(isEC) {
 }
 
 function addSummative(isEC) {
-    const summativeGrades = document.getElementById("sGrades").value;
-    let grade = Number(summativeGrades);
+    const grade = toValidGrade(document.getElementById("sGrades").value);
+    if (grade === null) {
+        return;
+    }
     if (isEC) {
         summativeEC.push(grade);
     }
@@ -37,20 +49,30 @@ function addSummative(isEC) {
 function addGradesFromOtherSource(formArray, sumArray) {
     for (let i = 0; i < formArray.length; i++) {
         let val = String(formArray[i]);
-        if (val.includes("EC")) {
-            formEC.push(Number(val.replace("EC", "")));
+        let isEC = val.includes("EC");
+        let grade = toValidGrade(isEC ? val.replace("EC", "") : val);
+        if (grade === null) {
+            continue;
+        }
+        if (isEC) {
+            formEC.push(grade);
         }
         else {
-            formGradesArray.push(Number(val));
+            formGradesArray.push(grade);
         }
     }
     for (let i = 0; i < sumArray.length; i++) {
         let val = String(sumArray[i]);
-        if (val.includes("EC")) {
-            summativeEC.push(Number(val.replace("EC", "")));
+        let isEC = val.includes("EC");
+        let grade = toValidGrade(isEC ? val.replace("EC", "") : val);
+        if (grade === null) {
+            continue;
+        }
+        if (isEC) {
+            summativeEC.push(grade);
         }
         else {
-            summativeGradesArray.push(Number(val));
+            summativeGradesArray.push(grade);
         }
     }
     calculate();
